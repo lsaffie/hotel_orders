@@ -1,0 +1,18 @@
+<h1>Editing foodstuff</h1>
+
+<%= error_messages_for :foodstuff %>
+
+<div>
+<% form_for(@foodstuff) do |f| %>
+  <p>
+Name:    <%= f.text_field :name%><br>
+Helper Text:    <%= f.text_field :helper_text%><br>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</div>
+
+<p>
+<%= link_to 'Show', foodstuff_path(@foodstuff) %> |
+<%= link_to 'Back', foodstuffs_path %>
+</p>

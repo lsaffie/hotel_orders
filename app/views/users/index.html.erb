@@ -1,0 +1,6 @@
+<% for user in @users %>
+	<p><%= user.login %>
+	<%= link_to 'delete', user_path(user.id), {:method => 'delete', :confirm => 'Are you sure?'} %> </p>
+<% end %>
+
+<%= link_to 'New', :action => 'new' %>

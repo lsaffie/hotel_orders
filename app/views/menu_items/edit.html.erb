@@ -1,0 +1,40 @@
+<h1>Editing Menu Item</h1>
+
+
+<%= error_messages_for :menu_item %>
+
+<% form_for :menu_item, @menu_item, :url => menu_menu_item_path(@menu, @menu_item), :html => {:multipart => true, :method => :put} do |f| %>
+  <p>
+    Picture:<%= f.file_field :uploaded_data %>
+    <br />
+    Name:<%= f.text_field :name %>
+    <br />
+    Price:<%= f.text_field :price %>
+    <br />
+    Description:<br><%= f.text_area :description%>
+    <br />
+  </p>
+    <h3>Foodstuffs</h3>
+      <ul>
+        <%- @foodstuffs.each do |foodstuff| %>
+          <li>
+            <%= foodstuff.name %> 
+          </li>
+        <%- end %>
+      </ul>
+    <h3>Addable foodstuffs</h3>
+      <ul>
+        <%- @addable_foodstuffs.each  do |foodstuff| %>
+          <li>
+            <%= check_box_tag('foodstuff_checked[]', foodstuff.id, @menu_item.foodstuffs.collect {|obj| obj.id}.include?(foodstuff.id)) %><%= foodstuff.name %>
+          </li>
+        <%- end %>
+      </ul>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<p>
+<%= link_to 'Back', menu_menu_items_path(@menu) %>
+</p>

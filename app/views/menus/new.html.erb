@@ -1,0 +1,14 @@
+<h1>New menu</h1>
+
+<%= error_messages_for :menu %>
+
+<% form_for(@menu) do |f| %>
+  <p>
+    <%= f.text_field :name %>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<p>
+<%= link_to 'Back', menus_path %>
+</p>

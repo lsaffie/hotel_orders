@@ -1,0 +1,30 @@
+<%= error_messages_for 'order' %>
+
+<!--[form:order]-->
+<h1> Your Summary </h1>
+<% for item in @cart.items %>
+	<%= item.meal_name.name %><br>
+<% end %>
+
+<p><label for="order_order_date">Order date</label><br/>
+<%= date_select 'order', 'order_date'  %></p>
+
+<p><label for="order_delivery_date">Delivery date</label><br/>
+<%= date_select 'order', 'delivery_date'  %></p>
+
+<p><label for="order_status">Status</label><br/>
+<%= text_field 'order', 'status'  %></p>
+
+<p><label for="order_room_number">Room number</label><br/>
+<%= text_field 'order', 'room_number'  %></p>
+
+<p><label for="order_guest_name">Guest name</label><br/>
+<%= text_field 'order', 'guest_name'  %></p>
+
+<p><label for="order_confirmation_number">Confirmation number</label><br/>
+<%= text_field 'order', 'confirmation_number'  %></p>
+
+<p><label for="order_total">Total</label><br/>
+<%= text_field 'order', 'total'  %></p>
+<!--[eoform:order]-->
+

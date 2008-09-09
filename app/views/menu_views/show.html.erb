@@ -1,0 +1,52 @@
+<div id="yellow_bg">
+  <p><div id="contentyellow">
+  <% if @menu_id == "1" %>
+  <p> If you wish to order from this menu for your game please send this form<br>
+  at least 24 HOURS before the game starts. </p>
+  <% elsif @menu_id == "2" %>
+    <p>We hope you had a pleasant evening.
+    If you wish to have breakfast delivered<br> to your room
+    tomorrow morning, please hang this card outside your door <br>
+    BEFORE 2:00 A.M.</p>
+  <% end %>
+  <div id="titlegen"></div>
+<div id="order_info">
+<% if @cart  %>
+  <h3> Ordered Items </h3>
+  <ol>
+  <% for cart in @cart.items do %>
+
+  <li><%= cart.menu_item.name %>
+
+    <%= number_to_currency(cart.menu_item.price) %>
+    </li>
+  <% end %>
+    <b>Total: <%= number_to_currency(@cart.total_price) %></b>
+  </ol>
+<% end %>
+<p style="color: green"><%= flash[:notice] %></p>
+
+</div></div></div>
+
+<div id="content">
+
+
+<h1>
+  <%= @menu.name %>
+</h1>
+  <h4> Click on a package to order or to get more information </h4>
+
+<% @menu_items.each do |menu_item| %>
+  <%- form_for :menu_item, @menu_items, :url => customized_menu_path(menu_item), :html => {:method => :get} do |form| %>
+    
+    <div id="menu_views_content"> 
+    <%- if menu_item.filename? %>
+      <%= image_submit_tag(menu_item.public_filename, :size => "230x200") %><br>
+    <%- end %>
+    <b><%= menu_item.name %></b><br>
+    <%= menu_item.description %><br>
+  <%- end %>
+  </div>
+<%- end %>
+<div id="buttons"><%= link_to image_tag("reset.gif"), cart_path, {:method => :delete, :confirm => 'Are you sure'} %>
+<%= link_to image_tag("submit.gif"), new_order_path, {:method => :get}  %></div>

@@ -1,0 +1,12 @@
+Confirmation Email
+
+Guest Name: <%= @name %> 
+Arrival Date:<%= @arrival_date %> 
+Confirmation Number: <%= @confirmation_number %> 
+Telephone: <%= @telephone %> 
+
+Ordered Items:
+<% for item in @items %>
+<%= item.quantity %> x <%= item.name %> <%= number_to_currency(item.price) %>
+<% end %>
+Total: <%= number_to_currency(@total) %>

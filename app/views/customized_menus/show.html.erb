@@ -1,0 +1,82 @@
+<div id="yellow_bg">
+  <p><div id="contentyellow">
+  <p> If you to order from this menu for your game please send this form<br>
+  at least 24 HOURS before the game starts. </p>
+  <div id="titlegen"></div>
+<div id="order_info">
+<% if @cart  %>
+  <h3> Ordered Items </h3>
+  <ol>
+  <% for cart in @cart.items do %>
+
+  <li><%= cart.menu_item.name %>
+
+      <%= number_to_currency(cart.menu_item.price) %>
+    </li>
+  <% end %>
+    <b>Total: <%= number_to_currency(@cart.total_price) %></b>
+  </ol>
+<% end %>
+<p style="color: green"><%= flash[:notice] %></p>
+
+</div></div></div>
+
+<div id="content">
+
+
+<%- form_for :menu_item, @menu_item, @option, :url => cart_path, :html => {:method => :put} do |form| %>
+  <%= form.hidden_field :id %>
+  <h1>
+    <%= @menu_item.name %>
+  </h1>
+  <%- if @menu_item.filename? %>
+    <p>
+      <%= image_tag(@menu_item.public_filename, :size => "230x200") %>
+    </p>
+  <%- end %>
+  <p>
+    <%= textilize(@menu_item.description) %>
+    <br />
+    <%= number_to_currency(@menu_item.price) %>
+  </p>
+  <ul>
+    <%- for foodstuff in @foodstuffs do %>
+  <% fields_for 'foodstuff[]', foodstuff do |foodstuff_fields| %>
+    <br>
+      <div id="helper_text"><%= foodstuff.helper_text %></div>
+      <li><div id="foodstuff_name"><%= foodstuff.name %></div>
+      <% if (foodstuff.name == "8 Chicken Fingers"  || foodstuff.name == "6 Hot Dogs") && 
+        @menu_item.name.start_with?('Cust') %>
+        Number of "6 hot dogs" meals  <%= foodstuff_fields.select :quantity, @quantity4 %>
+      <% end %>
+      </li>
+  <% end %>
+
+
+        <%- for option in foodstuff.options do%>
+          <ul>
+            <%- fields_for 'option[]', option do |option_fields| %>
+              <li>
+                <% if foodstuff.name == 'Sauce' %>
+                  <input type='radio' name='sauces' value='<%= option.name %>'> <%= option.name %> <br>
+                <% elsif foodstuff.name == "6 Hot Dogs" %>
+                  <%= option.name %>
+                  <%= option_fields.select :quantity_allowed, @quantity24 %>
+                <% else %>
+                  <%= option.name %>
+                  <%= option_fields.select :quantity_allowed, @quantity4 %>
+                <% end %>
+              </li>
+            <%- end %>
+          </ul>
+
+      <%- end %>
+    <%- end %>
+  </ul>
+  <p>
+  <%= link_to image_tag("BACK.gif"), menu_views_path, {:method => :get} %>
+   <%= link_to image_tag("reset.gif"), cart_path, {:method => :delete, :confirm => 'Are you sure'} %>
+   <%= image_submit_tag("ADDTOCART.gif") %>
+  </p>
+<%- end %>
+

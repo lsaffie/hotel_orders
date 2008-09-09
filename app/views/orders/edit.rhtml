@@ -1,0 +1,22 @@
+<h1>Editing order</h1>
+
+<%= error_messages_for :orders %>
+
+<div>
+<% form_for(@order) do |f| %>
+  <p>
+Name:    <%= f.text_field :guest_name%><br>
+Room Number:    <%= f.text_field :room_number%><br>
+Arrival Date:    <%= f.text_field :arrival_date%><br>
+Confirmation Number:    <%= f.text_field :confirmation_number%><br>
+Total:    <%= f.text_field :total_price%><br>
+
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+</div>
+
+<p>
+<%= link_to 'Show', foodstuff_path(@foodstuff) %> |
+<%= link_to 'Back', foodstuffs_path %>
+</p>

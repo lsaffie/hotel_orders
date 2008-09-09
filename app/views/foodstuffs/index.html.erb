@@ -1,0 +1,16 @@
+<h1>Listing foodstuffs</h1>
+
+<table>
+<% for foodstuff in @foodstuffs %>
+  <tr>
+    <td><%= foodstuff.name %></td>
+    <td><%= link_to 'Show', foodstuff_path(foodstuff) %></td>
+    <td><%= link_to 'Edit', edit_foodstuff_path(foodstuff) %></td>
+    <td><%= link_to 'Delete', foodstuff_path(foodstuff) , :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<p>
+<%= link_to 'New foodstuffs', new_foodstuff_path %>
+</p>

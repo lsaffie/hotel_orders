@@ -1,0 +1,23 @@
+Story: User logging in
+
+  As a user
+  I want to login with my details
+  So that I can get access to the site
+
+  Scenario: User uses wrong password
+    Given a username 'jdoe'
+    And a password 'letmein'
+    When the user logs in with username and password
+    Then the login form should be shown again
+    
+  Scenario: User uses correct password
+    Given a username 'jdoe'
+    And a password 'correct'
+    When the user logs in with the correct username and password
+    Then the menu list page should be shown
+    
+  Scenario: User does not exist
+    Given a username 'frank'
+    And a password 'foobar'
+    When the user logs in with username and password
+    Then the login form should be shown again

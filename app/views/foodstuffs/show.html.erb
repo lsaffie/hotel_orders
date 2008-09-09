@@ -1,0 +1,19 @@
+<h1><%= @foodstuff.name %></h1>
+
+<p>
+  Options for <%= @foodstuff.name %>:
+</p>
+<ul>
+  <%- @options.each do |option| %>
+    <li>
+      <%= option.name %>
+      <%= link_to 'Edit', edit_foodstuff_option_path(@foodstuff,option) , :method => :get %>
+      <%= link_to 'Destroy', foodstuff_option_path(@foodstuff,option) , :method => :delete, :confirm => 'Are you sure?' %>
+    </li>
+  <%- end %>
+</ul>
+
+<p>
+<%= link_to 'Add options for this foodstuff', new_foodstuff_option_path(@foodstuff) %>
+<%= link_to 'Edit', edit_foodstuff_path(@foodstuff) %> | <%= link_to 'Back', foodstuffs_path %>
+</p>

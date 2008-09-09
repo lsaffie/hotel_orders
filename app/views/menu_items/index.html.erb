@@ -1,0 +1,14 @@
+<h1>Listing menu items</h1>
+
+  <% unless @menu.menu_items.empty? %>
+    <% @menu.menu_items.each  do |menu_item| %>
+      <h2><%= link_to menu_item.name, edit_menu_menu_item_path(@menu, menu_item) %></h2>
+      <p><%= menu_item.description %></p>
+      <p><%= link_to 'Delete', menu_menu_item_path(@menu, menu_item), :confirm => 'Are you sure?', :method => :delete %></p>
+    <% end %>
+  <% end %>
+
+<p>
+<%= link_to 'New menu item', new_menu_menu_item_path(@menu) %>
+<%= link_to 'Back to menu page', menu_path(@menu) %>
+</p>

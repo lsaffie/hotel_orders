@@ -1,0 +1,34 @@
+<h1>New menu item</h1>
+
+<%= error_messages_for :menu_item %>
+<% form_for :menu_item, @menu_item, :url => menu_menu_items_path(@menu), :html => {:method => :post, :multipart => true} do |f| %>
+  <p>
+	Picture:<br />
+	 <%= f.file_field :uploaded_data %>
+	<br />
+   Name:<br />
+ 	 <%= f.text_field :name %>
+    <br />
+   Price:	<br />
+   <%= f.text_field :price %>
+    <br />
+   Description:	<br />
+   <%= f.text_area :description%>
+    <br />
+   </p>
+    <h3>Addable foodstuffs</h3>
+      <ul>
+        <%- @addable_foodstuffs.each  do |foodstuff| %>
+          <li>
+            <%= foodstuff.name %>
+          </li>
+        <%- end %>
+      </ul>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<p>
+<%= link_to 'Back', menu_menu_items_path(@menu) %>
+</p>

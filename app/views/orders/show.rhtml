@@ -1,0 +1,34 @@
+
+<div id="content">
+<h1>Order Status: <%= @order.order_status %><br></h1>
+Guest Name: <%= @order.guest_name%><br>
+<!--Room Number: <%#= @order.room_number %><br>-->
+Arrival Date: <%= @order.arrival_date %><br>
+Confirmation Number: <%= @order.confirmation_number %><br>
+Telephone: <%= @order.telephone %><br>
+email: <%= @order.email %><br>
+Total Price: <%= number_to_currency(@order.total_price) %><br>
+Delivery Date: <%= @order.delivery_date %><br>
+Delivery Time: <%= @order.delivery_time %><br>
+Created on: <%= @order.created_on %><br>
+Updated on: <%= @order.updated_on %><br>
+Updated by: <%= @order.updated_by %><br>
+
+<% @line_items.each do |line_item| %>
+	<h2><%= line_item.name %></h2><br>
+	<% for choice in line_item.choices %>
+		<%= choice.foodstuff_quantity %> x <%= choice.foodstuff_name %><br>
+		<%= choice.quantity %> x <%= choice.name %><br><br>
+	<% end %>
+<% end %>
+
+<% form_tag(order_path(@order), :method => :put)  do %>
+	<p><label>Order Status</label><br/>
+	<%= radio_button_tag "order_status", "Incomplete" %> Incomplete	<br>
+	<%= radio_button_tag "order_status", "Complete" %> Complete <br>	
+	<%= submit_tag 'Update Status'%>
+	<!-- <a href="edit.rhtml" id="" title="edit">edit</a> -->
+<% end %>
+
+<%= link_to_function("Print this Page", "javascript:print()") %>
+</div>

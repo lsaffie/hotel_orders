@@ -1,0 +1,15 @@
+<h1>Listing menus</h1>
+
+<table>
+<% for menu in @menus %>
+  <tr>
+    <td><%= menu.name %></td>
+    <td><%= link_to 'Show', menu_path(menu.id) %></td>
+    <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
+    <td><%= link_to 'Delete', menu, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<p>
+</p>

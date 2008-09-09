@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>AttractionOrders: <%= controller.action_name %></title>
+  <%#= stylesheet_link_tag 'scaffold' %>
+<%= stylesheet_link_tag 'styles' %>
+<%#= javascript_include_tag 'prototype.js' %>
+
+<% # Include TinyMCE before other JS to avoid problems -%>
+<%#= javascript_include_tiny_mce_if_used %>
+<%#= tiny_mce if using_tiny_mce? %>
+
+</head>
+
+<body>
+<% if admin? %>
+  <a href="/menus/1/menu_items"> Manage Menu </a><br>
+  <a href="/menus/2/menu_items"> Manage Breakfast Menu </a><br>
+  <a href="/foodstuffs"> Menu Options </a><br>
+  <a href="/orders">Orders </a><br>
+  <a href="/users"> Users </a><br>
+  <a href="/logout"> Logout </a><br>
+<% end %>
+<div id="outer">
+
+<div id="bg">
+  <div id="top" align="center"></div>
+  <div id="toptitle">FIELD VIEW </div>
+ 
+  <div id="body"> 
+<div id="content">   
+  <%= yield  %>
+</div>
+
+  </div>
+  </div>
+  </div>
+
+  </body>
+  </html>

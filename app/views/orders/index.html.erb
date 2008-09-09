@@ -1,0 +1,32 @@
+<div id="content">
+
+
+<h1>Listing orders</h1>
+
+<table id="view_orders" border="1px">
+  <tr>
+    <th>Guest Name</th>
+    <th>Arrival Date</th>
+    <th>Status</th>
+    <th>Created on</th>
+    <th>Delivery Date</th>
+    <th>Delivery Time</th>
+    <th>Updated by</th>
+  </tr>
+  
+<% for order in @orders %>
+  <tr>
+	<td><%=h order.guest_name %></td>
+	<td><%=h order.arrival_date %></td>
+	<td><%=h order.order_status %></td>	
+	<td><%=h order.created_on %></td>	
+	<td><%=h order.delivery_date %></td>
+	<td><%=h order.delivery_time %></td>
+	<td><%=h order.updated_by %></td>	
+	
+
+    <td><%= link_to 'Show', order %></td>
+    <td><%= link_to 'Delete', order, :method => :delete, :confirm => 'Are you sure?' %></td>
+  </tr>
+<% end %>
+</table>

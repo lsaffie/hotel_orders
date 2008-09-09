@@ -1,0 +1,186 @@
+body {
+margin-left: 0px;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+background-color: #e9eada;
+
+background-image: url(../images/tile.jpg);
+background-repeat: repeat-x;
+background-color: #e9eada;
+}
+#bg {
+padding-top: 20px;
+width: 100%;
+height: 900px;
+	background-image: url(../images/tile.jpg);
+	background-repeat: repeat-x;
+	background-color: #e9eada;
+	margin: 0 auto;
+
+}
+#general {
+}
+#top {
+background-image: url(../images/top1.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 808px;
+	height:124px;
+	
+}
+
+#toptitle {
+	background-image: url(../images/toptitle.png);
+	background-repeat: no-repeat;
+	float:left;
+	width: 808px;
+	height:21px;
+	font-family:Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+	color:#fff;
+	font-size:14px;
+	text-indent: 200px;
+	padding-top: 3px;
+	
+}
+
+#body {
+	background-image: url(../images/tile.png);
+	background-repeat: repeat-y;
+	width: 808px;
+	height:700px;
+	height:auto;
+	font-family:Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+	color:#000;
+	font-size:12px;
+	float: left;
+	}
+
+#content {
+font-family:Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+	color:#000;
+	font-size:12px;
+	float:left;
+	margin-left: 50px;
+	margin-right: 30px;
+	width: 680PX;
+	}
+#contentyellow {
+font-family:Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+	color:#000;
+	font-size:12px;
+	float:left;
+	margin-left: 190px;
+	margin-right: 30px;
+	}
+
+.txt {
+	font-family:Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+	color:#000;
+	font-size:12px;
+
+}
+
+.txt a:link {text-decoration: underline; color:#6e0830; }
+.txt A:hover {text-decoration: none; color:#333333; }
+
+#title2 {
+background-color: #6e0830;
+height: 20px;
+width: 780px;
+	font-family:Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+	color:#fff;
+	font-size:14px;
+	float: left;
+	padding-top: 3px;
+	margin-left: 14px;
+	text-indent: 30px;
+
+
+}
+#yellow_bg {
+background-color: #faa200;
+height: 150px;
+min-height: 150px; /* JL */
+height: auto; /* JL*/
+padding-bottom: 10px; /*JL */
+width: 780px;
+	font-family:Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+	color:#000;
+	font-size:12px;
+	float: left;
+	padding-top: 3px;
+	margin-left: 14px;
+}
+.title {
+	font-family:Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+	color:#6e0830;
+	font-size:14px;
+
+}
+
+#titlegen {
+border-bottom: #6e0830;
+border-bottom-width: 1px;
+border-bottom-style:solid;
+}
+
+#foot{
+background-image: url(../images/bot.png);
+	background-repeat: no-repeat;
+	width: 808px;
+	height:17px;
+	float:left;
+}
+
+/* ######### CUSTOM ###########*/
+#outer {
+width: 70%;
+margin: 0 auto;
+}
+#menu_views_content {
+float:left;
+width: 35%;
+margin-right: 90px;
+height: 220px;
+}
+#content {
+font-family:Trebuchet MS, Trebuchet, Verdana, Arial, Helvetica, sans-serif;
+	color:#000;
+	font-size:12px;
+	float:left;
+	margin-left: 15%;
+	margin-right: 0;
+	width: 680PX;
+}
+.delivery_times1 {
+	float:left;
+	margin-right: 50px;
+}
+.delivery_times2 {
+	float:left;
+	margin-right: 400px;
+	margin-bottom: 80px;
+}
+.checkout_right {
+	width: 100%;
+}
+#buttons {
+float: right;
+margin: 100px 50px 0 0;
+}
+img {
+	border: 0;
+}
+#foodstuff_name {
+color: #700b35;
+font: 11pt Arial;
+font-weight: bold;
+margin-bottom: 5px;
+}
+#helper_text {
+color: #5F5451;
+margin-top: 5px;
+font-style: italic;
+font-size: 11px;
+}

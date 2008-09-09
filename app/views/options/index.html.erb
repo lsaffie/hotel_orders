@@ -1,0 +1,19 @@
+<h1>Listing options</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for option in @options %>
+  <tr>
+    <td><%= option.name%>
+    <td><%= link_to 'Show', foodstuff_option_path(@foodstuff, option) %></td>
+    <td><%= link_to 'Edit', edit_foodstuff_option_path(@foodstuff, option) %></td>
+    <td><%= link_to 'Delete', foodstuff_option_path(@foodstuff, option) , :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New option', new_foodstuff_option_path(@foodstuff) %>

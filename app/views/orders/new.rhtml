@@ -1,0 +1,11 @@
+<h1>New order</h1>
+
+	<ul> 
+	<% for meal in @meals %>
+		<li><%= link_to(meal.name, :action => 'meal_description', :id => meal.id) %></li>
+	<% end %>
+	</ul>
+
+<br><br>
+
+<%= link_to 'Back', :action => 'list' %>

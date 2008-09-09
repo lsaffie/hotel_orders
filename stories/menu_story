@@ -1,0 +1,17 @@
+Story: Admin user editing menus
+
+  As admin 
+  I want to edit the menu list
+  So that I can add and remove menus from the site
+  
+  Scenario: An admin adds a menu that does not already exist
+    Given no menu named 'Breakfast' exists
+    
+    When admin goes to menus
+    And clicks on 'New menu'
+    And fills in menu[name] with 'Breakfast'
+    And clicks the Create button
+    
+    Then a menu named 'Breakfast' should exist
+    And the admin should see the menu show page
+    And page should have the menu's name

@@ -1,0 +1,90 @@
+<div id="yellow_bg">
+  <p><div id="contentyellow">
+  <% if @menu_id == 1 || @menu_id == 2 %>
+    <p> If you wish to have breakfast delivered to your room tomorrow morninig,<BR>
+    please send this form 24 hours prior to the game </p>
+  <% end %>
+  <div id="titlegen"></div>
+<div id="order_info">
+<% if @cart  %>
+  <h3> Ordered Items </h3>
+  <ol>
+  <% for cart in @cart.items do %>
+
+  <li><%= cart.menu_item.name %>
+    <% i = 0 %>
+    (<% while i < cart.options.length %>
+       <%= cart.quantities[i]%> x 
+       <%= cart.options[i].name %>.
+      <% i += 1 %>
+    <% end %>)
+    <%= number_to_currency(cart.menu_item.price) %>
+    </li>
+  <% end %>
+    <b>Total: <%= number_to_currency(@cart.total_price) %></b>
+  </ol>
+<% end %>
+<p style="color: green"><%= flash[:notice] %></p>
+<%= error_messages_for 'order' %>
+</div></div></div>
+
+<div id="content">
+<span class="title">DELIVERY DATE/TIME</span>
+<% form_for :customized_menus, @order, :url => orders_path() , :html => {:method => :post} do |form| %>
+  
+<div class="checkout_name"> </div><%= form.date_select :delivery_date, :size => 20 %>
+<div class="checkout_name"> </div><%#= form.time_select :delivery_date, :hour_start => 15, :minute_step => 15 %>
+<!--<div class="checkout_name"> </div><%#= form.datetime_select :delivery_datetime, :minute_step => 15%>-->
+
+ <div class="delivery_times1">
+<% if @menu_id == 1 %>
+  <% for dt in @delivery_times1 %>
+    <%= form.radio_button :delivery_time, dt %>
+    <%= dt %><br>
+  <% end %>
+  </div>
+  <div class="delivery_times2">
+  <% for dt in @delivery_times2 %>
+    <%= form.radio_button :delivery_time, dt %>
+    <%= dt %><br>
+  <% end %>
+<% end %>
+<% if @menu_id == 2 %>
+  <% for dt in @delivery_times1bf %>
+    <%= form.radio_button :delivery_time, dt %>
+    <%= dt %><br>
+  <% end %>
+  </div>
+  <div class="delivery_times2">
+  <% for dt in @delivery_times2bf %>
+    <%= form.radio_button :delivery_time, dt %>
+    <%= dt %><br>
+  <% end %>
+<% end %>
+</div>
+<% if @menu_id == 2 || @menu_id == 1 %>
+  <div class="checkout_right">
+    <span class="title">GUEST INFORMATION</span>
+    <p>Please fill out all the required fields (*)</p>
+    
+  <% if @menu_id == 1 %>  
+    <div class="checkout_name">* Registered Guest Name </div><%= form.text_field :guest_name, :size => 20 %>
+    <div class="checkout_name">* Arrival Date </div><%= form.date_select :arrival_date, :size => 20 %>
+    <div class="checkout_name">* Confirmation Number </div> <%= form.text_field :confirmation_number, :size => 20 %>
+    <div class="checkout_name">* Tel (xxx-xxx-xxxx)</div><%= form.text_field :telephone, :size => 20 %>
+    <div class="checkout_name">* E-mail </div><%= form.text_field :email, :size => 20 %>
+    <div class="checkout_name">* E-mail Confirmation </div><%= form.text_field :email_confirmation, :size => 20 %>
+  <%# elsif @menu_id == 2 %>
+  <!-- <div class="checkout_name">* Registered Guest Name </div><%#= form.text_field :guest_name, :size => 20 %> -->
+   <!-- <div class="checkout_name">* Room Number </div><%#= form.text_field :room_number, :size => 20 %> -->
+ <% end %>
+  </div>
+<% end %>
+
+
+  
+<div>  
+<%= image_submit_tag ("submit.gif") %>
+</div>
+<% end %>
+  
