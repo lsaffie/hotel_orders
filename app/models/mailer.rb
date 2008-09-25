@@ -7,7 +7,7 @@ class Mailer < ActionMailer::Base
       @body["telephone"] =order.telephone  
       @body["items"] = order.line_items
       @body["total"] = cart.total_price
-      @recipients = 'nogab@dfdsolutions.com'
+      @recipients = 'mive@renaissancetoronto.com'
       @from = 'renaissance@renaissancetoronto.com'
       @headers    = {}
     end
